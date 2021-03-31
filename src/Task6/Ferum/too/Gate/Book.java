@@ -14,26 +14,32 @@ public class Book {
 
     public void addAuthor(Author author) {
         Objects.requireNonNull(author, "author не может быть null");
-        Scanner in = new Scanner(System.in);
-        System.out.println("введите кол-во авторов ");
-                int a = in.nextInt();
+        for (int i = 0; i < authors.length; i++) {
+            if (authors[i] == null) {
+                authors[i] = author;
+                return;
+            }
+        }
+//        Scanner in = new Scanner(System.in);
+//        System.out.println("введите кол-во авторов ");
+//                int a = in.nextInt();
 
 // добавит модуль проверки на < 0
-        if (a < 0)
-        if (a > 1) {
-            for (int i = 0; i < a; i++) {
-                if (authors[i] == null){
-                    authors[i] = author;
-                    return;
-                }
+//        if (a < 0)
+//        if (a > 1) {
+//            for (int i = 0; i < a; i++) {
+//                if (authors[i] == null){
+//                    authors[i] = author;
+//                    return;
+//                }
+//
+//            }
 
-            }
 
-
-        } else {
-            authors[0] = author;
-
-        }
+//        } else {
+//            authors[0] = author;
+//
+//        }
 
 
     }
@@ -96,8 +102,8 @@ public class Book {
                 '}';
     }
 
-    public Book(Author[] authors, String bookName, int pageQTY, int yearRel, UUID uuid) {
-        this.authors = authors;
+    public Book(int authorCount, String bookName, int pageQTY, int yearRel, UUID uuid) {
+        this.authors = new Author[authorCount];
         this.bookName = bookName;
         this.pageQTY = pageQTY;
         this.yearRel = yearRel;

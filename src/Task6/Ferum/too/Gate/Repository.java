@@ -12,7 +12,7 @@ public class Repository {
 
     public void setRepNum(int repNum) {
 
-        if (repNum < 0){
+        if (repNum < 0) {
             throw new IllegalArgumentException("Значение repNum не может быть < 0");
         }
 
@@ -35,39 +35,28 @@ public class Repository {
                 '}';
     }
 
-    public Repository(Book[] books, int repNum) {
-        this.books = books;
-        this.repNum = repNum;
+    public Repository(int repNum) {
+        this.books = new Book[20];
+        setRepNum(repNum);
     }
 
-    public void addBook (Book book){
-    Objects.requireNonNull(book, "book не может быть null ");
+    public void addBook(Book book) {
+        Objects.requireNonNull(book, "book не может быть null ");
 
-    circleRep: for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 20; i++) {
 
-        if (books[i]== null){
-            books[i] = book;
-            return;
+            if (books[i] == null) {
+                books[i] = book;
+                return;
+            }
+
+
         }
 
+        System.out.println("Мет нет, хранилище заполнено");
 
 
     }
-
-    System.out.println("Мет нет, хранилище заполнено");
-
-
-
-
-}
-
-
-
-
-
-
-
-
 
 
 }
