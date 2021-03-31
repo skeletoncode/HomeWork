@@ -1,14 +1,26 @@
 package Task6.Ferum.too.Gate;
 
+import java.util.UUID;
+
 public class Applivation {
     public static void main(String[] args) {
         // Repository Repository1 = new Repository();
       //  Repository Repository2 = new Repository();
 // не понятно в чем ошибка или ошибки..
 
-     //    Author Author1 = new Author();
+         Author author1 = new Author("author", "surname");
+         Author author2 = new Author("author 2", "surname 2");
+         Author author3 = new Author("author 3", "surname 3");
      //    SetAuthorName(" ighgb");
-     //    Book Book1 = new Book();
+         Book book1 = new Book(3, "title", 1900, 2020, UUID.randomUUID());
+         book1.addAuthor(author1);
+         book1.addAuthor(author2);
+         book1.addAuthor(author3);
+
+         Repository repository = new Repository(1);
+         repository.addBook(book1);
+
+
      //    Set
      //    SetBookName("Мифы");
 
