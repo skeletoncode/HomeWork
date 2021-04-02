@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Cat {
 
-
+в
     private String name;
     private String color;
     public int catSpeed;
@@ -14,7 +14,7 @@ public class Cat {
 
 
     public void addMouse(Mouse mouse) {
-        for (int i = 0; i < 100 && cat.catSpeed > mouse.mouseSpeed; i++) {
+        for (int i = 0; i < 100 && catSpeed > mouse.mouseSpeed; i++) {
             if (mousesCatch == null) {
                 mousesCatch[i] = mouse;
                 return;
@@ -23,12 +23,25 @@ public class Cat {
     }
 
 
+    public void catchCat(Cat otherCat){     // метод
+        if (this.weight < otherCat.weight) return;
+        for (int i = 0; i < otherCat.mousesCatch.length; i++) {
+            if (this.mousesCatch[i] == null && otherCat.mousesCatch[i] != null )
+                mousesCatch[i] = otherCat.mousesCatch[i];
+
+        }
+
+    }
+
+
+
+
     public Cat(String name, String color, int catSpeed, int weight, Mouse[] mousesCatch) {
         this.name = name;
         this.color = color;
         this.catSpeed = catSpeed;
         this.weight = weight;
-        this.mousesCatch = mousesCatch;
+
     }
 
     public String getName() {
