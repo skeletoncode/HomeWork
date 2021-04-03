@@ -36,14 +36,12 @@ public class Cat {
     }
 
 
-
-
     public Cat(String name, String color, int catSpeed, int weight, Mouse[] mousesCatch) {
         this.name = name;
         this.color = color;
         this.catSpeed = catSpeed;
         this.weight = weight;
-
+        this.mousesCatch = mousesCatch;
     }
 
     public String getName() {
