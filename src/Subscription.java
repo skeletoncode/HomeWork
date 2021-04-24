@@ -28,6 +28,10 @@ public class Subscription {
         this.people = people;
     }
 
+    public Subscription() {
+
+    }
+
     public UUID getUuid() {
         return uuid;
     }
@@ -99,15 +103,27 @@ public class Subscription {
 
 // registration(p, Type.YEAR, 12, Zone.GYM, Zone.POOL)
 
-     public void registration(People people, UUID uuid, Type type, int months, LocalTime allowedAccessTime , Zone... zones) {   // ... многоточие  передача нескольких аргументов одного типа
+     public void registration(People people, UUID uuid, Type type, Zone... zones) {   // ... многоточие  передача нескольких аргументов одного типа
         this.uuid = uuid;
-        dateCurrent = LocalDate.now();
-        dateEndRegistration = LocalDate.now().plusMonths(months);
-        this.allowedAccessTime = allowedAccessTime;
-        typeSubscribe = type;
         this.people = people;
-        allowedAccessZone = zones; // [Zone.GYM, Zone.POOL]
+        dateCurrent = LocalDate.now();
+        switch (type) {
+            case ONCE:
+            dateEndRegistration = LocalDate.now().plusDays(1);   // switch по типу абонемента --- установка зон и тп..
+            allowedAccessTime = LocalTime.of(22,00);
 
+            case YEARDAY:
+             dateEndRegistration = LocalDate.now().plusDays(365);
+             allowedAccessTime = LocalTime.of(16,00);
+
+            case YEARFULL:
+            dateEndRegistration =LocalDate.now().plusDays(365);
+            allowedAccessTime = LocalTime.of(22,00);
+        }
+
+
+        allowedAccessZone = zones; // [Zone.GYM, Zone.POOL]
+        this.typeSubscribe = type;
      }
 
      public enum Zone {
@@ -115,7 +131,7 @@ public class Subscription {
 
      }   // addType    Zona/ type/ time
      public enum Type{
-        ONCE, YEAR, MONTH
+        ONCE, YEARFULL, YEARDAY
      }
 
     // public static void  addType(Zone [] zone,  ) {
