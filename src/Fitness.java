@@ -29,28 +29,215 @@ public class Fitness {
                             if (subscription1 != subscription){
                                 for (Subscription subscription2: subInFitnessZonePOOL){
                                     if (subscription2 != subscription){
-                                        
-                                    }
+                                        for (int i = 0; i < 19; i++) {
+                                            if(zone == Subscription.Zone.POOL) {
+                                                for (int j = 0; j < 19; j++) {
+                                                    if(subInFitnessZonePOOL[i] == null){
+                                                        subInFitnessZonePOOL[i] = subscription;
+                                                        System.out.println(subscription.getPeople());
+                                                        System.out.println(Subscription.Zone.POOL);
+                                                        System.out.println(LocalTime.now());
+                                                        System.out.println(LocalDate.now());
+                                                        return;
+                                                    }
+                                                }
+                                                System.out.println("В зоне POOL нет свободных мест");
+                                                return;
+
+                                            } else {
+                                                for (int j = 0; j <19 ; j++) {
+                                                    if(subInFitnessZoneGYM[i] == null) {
+                                                        subInFitnessZoneGYM[i] = subscription;
+                                                        return;
+                                                    }
+
+                                                }
+                                                System.out.println(" В зоне GYM нет свободных мест");
+
+                                            }
+                                        }
+                                    } else {
+                                        System.out.println(" Вы уже зарегистрированы в указанной зоне POOL");
+                                        return;
+                                    };
                                 }
-                            }  else;
+                            }  else {
+                                System.out.println("Вы уже зарегистрированы в Желаемой зоне");
+                                return;
+                            };
                         }
 
                     } else System.out.println("У вас нет доступа в желаемую зону");
 
 
 
-                }
+                } else System.out.println("Ваш абонемент просрочен!");
 
                 break;
 
             case YEARFULL:
+                if (subscription.getDateEndRegistration().isAfter(LocalDate.now())) {
+                    for (Subscription subscription1: subInFitnessZoneCLASS ){
+                        if (subscription1 != subscription) {
+                            for (Subscription subscription2: subInFitnessZonePOOL){
+                                if (subscription2 != subscription){
+                                    for (Subscription subscription3: subInFitnessZoneGYM){
+                                        if (subscription3 != subscription) {
+                                            if (zone == Subscription.Zone.CLASSES){
+                                                for (int i = 0; i < 19; i++) {
+                                                    if (subInFitnessZoneCLASS[i]==null){
+                                                        subInFitnessZoneCLASS[i] = subscription;
+                                                        System.out.println(subscription.getPeople());
+                                                        System.out.println(Subscription.Zone.CLASSES);
+                                                        System.out.println(LocalTime.now());
+                                                        System.out.println(LocalDate.now());
+                                                    } else {
+                                                        System.out.println("В запрашиваемой зоне нет свободных мест");
+                                                        return;
+                                                    }
+                                                }
+
+                                            }else if (zone == Subscription.Zone.GYM){
+                                                for (int i = 0; i < 19; i++) {
+                                                    if (subInFitnessZonePOOL[i] == null) {
+                                                        subInFitnessZonePOOL[i] =subscription;
+                                                        System.out.println(subscription.getPeople());
+                                                        System.out.println(Subscription.Zone.GYM);
+                                                        System.out.println(LocalTime.now());
+                                                        System.out.println(LocalDate.now());
+                                                    } else {
+                                                        System.out.println("В запрашиваемой зоне нет свободных мест");
+                                                        return;
+                                                    }
+
+                                                }
+
+                                            }else {
+                                                for (int i = 0; i < 19; i++) {
+                                                    if (subInFitnessZoneGYM[i] == null) {
+                                                        subInFitnessZoneGYM[i] = subscription;
+                                                        System.out.println(subscription.getPeople());
+                                                        System.out.println(Subscription.Zone.POOL);
+                                                        System.out.println(LocalTime.now());
+                                                        System.out.println(LocalDate.now());
+                                                    } else {
+                                                        System.out.println("В запрашиваемой зоне нет сободных мест");
+                                                        return;
+                                                    }
+
+                                                }
+
+                                            }
+                                        }else  {
+                                            System.out.println("вы уэе зарегистрированы в данное зоне");
+                                            return;
+                                        }
+                                    }
+                                } else {
+                                    System.out.println("вы уже зарегистрированы в данной зоне");
+                                    return;
+                                }
+                            }
+
+
+
+                        } else {
+                            System.out.println("вы уже зарегитрированы в данной зоне");
+                            return;
+                        }
+
+
+
+                    }
+
+
+                } else {
+                    System.out.println("Ваш абонемент просрочен");
+                    return;
+                }
+
 
 
                 break;
 
 
             case YEARDAY:
+                    if (subscription.getDateEndRegistration().isAfter(LocalDate.now()) ){
+                            if (subscription.getAllowedAccessTime().isBefore(LocalTime.now())) {
+                                if (zone == Subscription.Zone.CLASSES | zone == Subscription.Zone.GYM) {
+                                    for (Subscription subscription1: subInFitnessZoneCLASS){
+                                        if (subscription1 != subscription){
+                                            for (Subscription subscription2: subInFitnessZoneGYM) {
+                                                if (subscription2 != subscription){
+                                                    if (zone == Subscription.Zone.CLASSES){
+                                                        for (int i = 0; i < 19; i++) {
+                                                            if (subInFitnessZoneCLASS[i]== null){
+                                                                subInFitnessZoneCLASS[i] = subscription;
+                                                                System.out.println(subscription.getPeople());
+                                                                System.out.println(Subscription.Zone.CLASSES);
+                                                                System.out.println(LocalTime.now());
+                                                                System.out.println(LocalDate.now());
+                                                            } else {
+                                                                System.out.println("В запрашиваемой зоне нет свободных мпест");
+                                                                return;
+                                                            }
 
+                                                        }
+
+                                                    } else {
+                                                        for (int i = 0; i < 19; i++) {
+                                                            if ( subInFitnessZoneGYM[i] == null) {
+                                                                subInFitnessZoneGYM[i] = subscription;
+                                                                System.out.println(subscription.getPeople());
+                                                                System.out.println(Subscription.Zone.GYM);
+                                                                System.out.println(LocalTime.now());
+                                                                System.out.println(LocalDate.now());
+                                                            } else {
+                                                                System.out.println("В запрашиваемой зоне нет свободных мест");
+                                                                return;
+                                                            }
+
+                                                        }
+                                                    }
+
+
+
+
+                                                }else {
+                                                    System.out.println("Вы уже зарегистрированы в данной зоне");
+                                                    return;
+                                                }
+                                            }
+
+                                        }else {
+                                            System.out.println("Вы уже зарегистрированы в данной зоне");
+                                            return;
+                                        }
+
+                                    }
+
+
+                                } else {
+                                    System.out.println("Даная зона не оплачена в вашем абонементе");
+                                    return;
+                                }
+
+
+
+
+
+                            } else {
+                                System.out.println("Вы пришли не в свое время, ваше время до 16-00");
+                                return;
+                            }
+
+
+
+
+                    } else {
+                        System.out.println("Ваш абонемент просрочен");
+                        return;
+                    }
 
                 break;
 
@@ -66,7 +253,22 @@ public class Fitness {
     }
 
 
+            public void printVisitors () {
+                for (int i = 0; i < 19; i++) {
+                    System.out.println(subInFitnessZoneCLASS[i]);
 
+                }
+                for (int i = 0; i < 19; i++) {
+                    System.out.println(subInFitnessZoneGYM[i]);
+
+                }
+
+                for (int i = 0; i < 19; i++) {
+                    System.out.println(subInFitnessZonePOOL[i]);
+
+                }
+
+                }
 
 
 
