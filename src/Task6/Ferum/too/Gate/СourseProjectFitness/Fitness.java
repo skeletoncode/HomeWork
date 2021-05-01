@@ -3,19 +3,20 @@ package Task6.Ferum.too.Gate.СourseProjectFitness;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Fitness {
 
     public String name;
-    public Subscription[] subAll;   // зарегистрированные абонементы --- все
+   // public Subscription[] subAll;   // зарегистрированные абонементы --- все
     public Subscription subscription; // единичный абонемент/человек --- в фитнесеть есть только абонементы.
     public Subscription[] subInFitnessZoneGYM; // --- (бассейн, тренажерный зал, групповые занятия) [20, 20, 20]
     public Subscription.Zone zone;
     public Subscription[] subInFitnessZonePOOL; // 20 Subscription different
     public Subscription[] subInFitnessZoneCLASS; // 20 Subscription different
-    public LocalDateTime timeIn;            // время входа
-    public LocalDateTime timeOut;           // время выхода
+    //public LocalDateTime timeIn;            // время входа -- переместил в абонемент
+    //public LocalDateTime timeOut;           // время выхода -- переместил в абонемент
 
 
 
@@ -36,6 +37,7 @@ public class Fitness {
                                                         subInFitnessZonePOOL[i] = subscription;
                                                         System.out.println(subscription.getPeople());
                                                         System.out.println(Subscription.Zone.POOL);
+                                                        subscription.setTimeIn(LocalDateTime.now());
                                                         System.out.println(LocalTime.now());
                                                         System.out.println(LocalDate.now());
                                                         return;
@@ -218,6 +220,44 @@ public class Fitness {
 
     }
 
+    public void exitClub(Subscription[] subInFitnessZoneGYM, Subscription[] subInFitnessZonePOOL, Subscription[] subInFitnessZoneCLASS, Subscription subscription) {
+        for (int i = 0; i < subInFitnessZoneGYM.length; i++) {
+            if (subInFitnessZoneGYM[i] == subscription){
+                subInFitnessZoneGYM[i] = null;
+                subscription.setTimeIn(null);
+                subscription.setTimeOut(LocalDateTime.now());
+                System.out.println(subscription.getPeople() + "вышел из Клуба");
+                System.out.println(LocalDateTime.now() + "время выходаиз Клуба");
+                return;
+            } else {
+                for (int j = 0; j < subInFitnessZoneCLASS.length; j++) {
+                    if (subInFitnessZoneCLASS[i] == subscription) {
+                        subInFitnessZoneCLASS[i] = null;
+                        subscription.setTimeIn(null);
+                        subscription.setTimeOut(LocalDateTime.now());
+                        System.out.println(subscription.getPeople() + "вышел из Клуба");
+                        System.out.println(LocalDateTime.now() + "время выходаиз Клуба");
+                        return;
+                    } else {
+                        for (int k = 0; k < subInFitnessZonePOOL.length; k++) {
+                            if (subInFitnessZonePOOL[i] == subscription) {
+                                subInFitnessZonePOOL[i] = null;
+                                subscription.setTimeIn(null);
+                                subscription.setTimeOut(LocalDateTime.now());
+                                System.out.println(subscription.getPeople() + "вышел из Клуба");
+                                System.out.println(LocalDateTime.now() + "время выходаиз Клуба");
+                                return;
+
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
             public void printVisitors () {
                 for (int i = 0; i < 19; i++) {
                     if(subInFitnessZoneCLASS[i] != null) System.out.println("CLASS" + subInFitnessZoneCLASS[i].getPeople());
@@ -235,12 +275,64 @@ public class Fitness {
 
                 }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
 
 
-    // data
+
+    public Subscription[] getSubInFitnessZoneGYM() {
+        return subInFitnessZoneGYM;
+    }
+
+    public void setSubInFitnessZoneGYM(Subscription[] subInFitnessZoneGYM) {
+        this.subInFitnessZoneGYM = subInFitnessZoneGYM;
+    }
+
+    public Subscription.Zone getZone() {
+        return zone;
+    }
+
+    public void setZone(Subscription.Zone zone) {
+        this.zone = zone;
+    }
+
+    public Subscription[] getSubInFitnessZonePOOL() {
+        return subInFitnessZonePOOL;
+    }
+
+    public void setSubInFitnessZonePOOL(Subscription[] subInFitnessZonePOOL) {
+        this.subInFitnessZonePOOL = subInFitnessZonePOOL;
+    }
+
+    public Subscription[] getSubInFitnessZoneCLASS() {
+        return subInFitnessZoneCLASS;
+    }
+
+    public void setSubInFitnessZoneCLASS(Subscription[] subInFitnessZoneCLASS) {
+        this.subInFitnessZoneCLASS = subInFitnessZoneCLASS;
+    }
 
 
 
+// data
+
+
+    @Override
+    public String toString() {
+        return "Fitness{" +
+                "name='" + name + '\'' +
+                ", subscription=" + subscription +
+                ", subInFitnessZoneGYM=" + Arrays.toString(subInFitnessZoneGYM) +
+                ", zone=" + zone +
+                ", subInFitnessZonePOOL=" + Arrays.toString(subInFitnessZonePOOL) +
+                ", subInFitnessZoneCLASS=" + Arrays.toString(subInFitnessZoneCLASS) +
+                               '}';
+    }
 }

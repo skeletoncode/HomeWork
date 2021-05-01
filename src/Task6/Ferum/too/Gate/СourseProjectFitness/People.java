@@ -6,14 +6,13 @@ public class People  {
     public String name;
     public String surname;
     public LocalDate birthDay;
-    public Subscription subscription;
+   // public Subscription subscription;
 
 
-    public People(String name, String surname, LocalDate birthDay, Subscription subscription) {
+    public People(String name, String surname, LocalDate birthDay) {
         this.name = name;
         this.surname = surname;
         this.birthDay = birthDay;
-        this.subscription = subscription;
     }
 
     public People() {
@@ -26,7 +25,7 @@ public class People  {
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", birthDay=" + birthDay +
-                ", subscription=" + subscription +
+         //       ", subscription=" + subscription +
                 '}';
     }
 
@@ -54,11 +53,7 @@ public class People  {
         this.birthDay = birthDay;
     }
 
-    public Subscription getSubscription() {
-        return subscription;
-    }
 
-    public void setSubscription(Subscription subscription) {
-        this.subscription = subscription;
-    }
+
+
 }

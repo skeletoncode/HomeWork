@@ -14,18 +14,30 @@ public class Subscription {
    public LocalDate dateCurrent;   //  дата регистрации
    public LocalDate dateEndRegistration; // дата окончания доступа в клуб
    public LocalTime allowedAccessTime; // разрешенное время посещения
-
+    //public LocalTime
     public Zone[] allowedAccessZone;  // разрешенные зоны посещения
     private People people;
+    public LocalDateTime timeIn;            // время входа
+    public LocalDateTime timeOut;           // время выхода
 
-    public Subscription(UUID uuid, Type typeSubscribe, LocalDate dateCurrent, LocalDate dateEndRegistration, LocalTime allowedAccessTime, Zone[] allowedAccessZone, People people) {
-        this.uuid = uuid;
-        this.typeSubscribe = typeSubscribe;
-        this.dateCurrent = dateCurrent;
-        this.dateEndRegistration = dateEndRegistration;
-        this.allowedAccessTime = allowedAccessTime;
-        this.allowedAccessZone = allowedAccessZone;
-        this.people = people;
+
+
+
+
+    public LocalDateTime getTimeIn() {
+        return timeIn;
+    }
+
+    public void setTimeIn(LocalDateTime timeIn) {
+        this.timeIn = timeIn;
+    }
+
+    public LocalDateTime getTimeOut() {
+        return timeOut;
+    }
+
+    public void setTimeOut(LocalDateTime timeOut) {
+        this.timeOut = timeOut;
     }
 
     public Subscription() {
