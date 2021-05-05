@@ -3,14 +3,15 @@ package Task6.Ferum.too.Gate.СourseProjectFitness;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.UUID;
 
 public class AppFit {
     public static void main(String[] args) {
 
 
-       System.out.println(LocalDateTime.now());
-       System.out.println( LocalDateTime.of(2011,12, 11, 20,00 ));
+      // System.out.println(LocalDateTime.now());
+      // System.out.println( LocalDateTime.of(2011,12, 11, 20,00 ));
         People people = new People();
         people.name = "Joker" ;
         people.surname = "Tramp" ;
@@ -159,6 +160,58 @@ public class AppFit {
         Subscription[] subInFitnessZoneCLASS = new Subscription[20];
 
         fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription1, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription2, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription3, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription4, Subscription.Zone.GYM);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription5, Subscription.Zone.GYM);
+
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription6, Subscription.Zone.GYM);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription7, Subscription.Zone.GYM);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription8, Subscription.Zone.GYM);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription9, Subscription.Zone.GYM);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription10, Subscription.Zone.GYM);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription11, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription12, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription13, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription14, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription15, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription16, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription17, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription18, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription19, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription20, Subscription.Zone.POOL);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription21, Subscription.Zone.CLASSES);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription22, Subscription.Zone.CLASSES);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription23, Subscription.Zone.CLASSES);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription24, Subscription.Zone.CLASSES);
+        fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription25, Subscription.Zone.CLASSES);
+
+
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription26, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription27, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription28, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription29, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription30, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription31, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription32, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription33, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription34, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription35, Subscription.Zone.POOL);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription36, Subscription.Zone.POOL);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription37, Subscription.Zone.CLASSES);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription38, Subscription.Zone.GYM);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription39, Subscription.Zone.GYM);
+     fitness.registrationSub(subInFitnessZoneGYM, subInFitnessZonePOOL, subInFitnessZoneCLASS, subscription40, Subscription.Zone.GYM);
+
+
+     // fitness.printVisitors();
+
+
+     System.out.println(Arrays.toString(subInFitnessZoneCLASS) + " абонементы в зоне CLASS");
+
+     System.out.println(Arrays.toString(subInFitnessZoneGYM) + "абонементы в зоне GYM");
+
+     System.out.println(Arrays.toString(subInFitnessZonePOOL) + "абонементы в зоне POOL");
 
 
 
@@ -176,18 +229,13 @@ public class AppFit {
 
 
 
-
-
-
-
-
-
-        subscription.registration(people, UUID.randomUUID(), Subscription.Type.ONCE, Subscription.Zone.GYM, Subscription.Zone.POOL  );
+    //    subscription.registration(people, UUID.randomUUID(), Subscription.Type.ONCE, Subscription.Zone.GYM, Subscription.Zone.POOL  );
 
 
       //  Fitness fitness = new Fitness();
        // fitness.name = "Olimpia";
 
+     fitness.start();
 
 
     }
