@@ -3,47 +3,47 @@ package Task6.Ferum.too.Gate.Task18;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-public class DecoratorFilterInputStream extends FilterOutputStream {
+public class DecoratorFilterInputStream extends FilterInputStream {
+
+
     /**
-     * Creates an output stream filter built on top of the specified
-     * underlying output stream.
+     * Creates a {@code FilterInputStream}
+     * by assigning the  argument {@code in}
+     * to the field {@code this.in} so as
+     * to remember it for later use.
      *
-     * @param out the underlying output stream to be assigned to
-     *            the field {@code this.out} for later use, or
-     *            {@code null} if this instance is to be
-     *            created without an underlying stream.
+     * @param in the underlying input stream, or {@code null} if
+     *           this instance is to be created without an underlying stream.
      */
-    public DecoratorFilterInputStream(OutputStream out) {
-        super(out);
-    }
- /*
-    public static byte[] encode(String pText, String pKey) {
-        byte[] txt = pText.getBytes();
-        byte[] key = pKey.getBytes();
-        byte[] res = new byte[pText.length()];
-
-        for (int i = 0; i < txt.length; i++) {
-            res[i] = (byte) (txt[i] ^ key[i % key.length]);
-        }
-
-        return res;
+    private String key;
+    protected DecoratorFilterInputStream(InputStream in, String key) {
+        super(in);
+        this.key = key;
     }
 
-  */
-
-    public int read(byte[] b ) throws IOException {
-        int result = super.read(b);
-        byte[] myKey = "Testing some Encrypting".getBytes(StandardCharsets.UTF_8);
+    @Override
+    public int read(byte[] b) throws IOException {
+        byte[] k = key.getBytes();
+        int count =  super.read(b);
         for (int i = 0; i < b.length; i++) {
-            b[i] = (byte) (b[i] ^
-             myKey[i % myKey.length];
+            b[i] = (byte) (b[i] ^ k[i % k.length]);
         }
 
-        return result;
-
-
+        return count;
     }
 
+    // Дешифрование строки --- int
+
+    public static String decode(byte[] pText, String pKey) {
+        byte[] res = new byte[pText.length];
+        byte[] key = pKey.getBytes();
+
+        for (int i = 0; i < pText.length; i++) {
+            res[i] = (byte) (pText[i] ^ key[i % key.length]);
+        }
+
+        return new String(res);
+    }
 
 
 

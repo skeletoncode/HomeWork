@@ -12,14 +12,27 @@ public class DecoratorFilterOutputStream extends FilterOutputStream {
      *            {@code null} if this instance is to be
      *            created without an underlying stream.
      */
-    public DecoratorFilterOutputStream(OutputStream out) {
+    private String key;
+    public DecoratorFilterOutputStream(OutputStream out, String key) {
         super(out);
+        this.key = key;
     }
 
 
     // Шифрование на основе операций XOR использует свойство:
     //(a XOR k) XOR k = a
     //где k – выступает в роли ключа
+    // Простая реализация шифрования строки:
+
+
+    @Override
+    public void write(byte[] b) throws IOException {
+        byte[] k = key.getBytes();
+        for (int i = 0; i < b.length; i++) {
+            b[i] = (byte) (b[i] ^ k[i % k.length]);
+        }
+        super.write(b);
+    }
 
     public static byte[] encode(String pText, String pKey) {
         byte[] txt = pText.getBytes();
@@ -32,6 +45,8 @@ public class DecoratorFilterOutputStream extends FilterOutputStream {
 
         return res;
     }
+
+
 
 
 
