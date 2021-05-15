@@ -34,10 +34,12 @@ public class People  {
     }
 
     public void setName(String name) {
+        if (name.length() < 3) System.out.println("имя не может быть меньше 3 символов");
         this.name = name;
     }
 
     public String getSurname() {
+        if (surname.length() < 2) System.out.println("фамилия не может быть меньше символов");
         return surname;
     }
 

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Subscription {
@@ -116,6 +117,9 @@ public class Subscription {
 // registration(p, Type.YEAR, 12, Zone.GYM, Zone.POOL)
 
      public void registration(People people, UUID uuid, Type type, Zone... zones) {   // ... многоточие  передача нескольких аргументов одного типа
+         Objects.requireNonNull(people, "человек не может быть null");
+         Objects.requireNonNull(type, "тип не может быть null");
+         Objects.requireNonNull(zones, "зона не может быть null");
         this.uuid = uuid;
         this.people = people;
         dateCurrent = LocalDate.now();
